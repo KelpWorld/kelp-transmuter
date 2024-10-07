@@ -213,8 +213,18 @@ foreach ($phpFiles as $file) {
     try {
         $code = file_get_contents($filePath);
 
+        // remove code from class-wp-filesystem-ftpsockets.php
+        if (str_contains($filePath, 'class-wp-filesystem-ftpsockets.php')) {
+            $code = str_replace("		// Check if possible to use ftp functions.\n		if ( ! require_once ABSPATH . 'wp-admin/includes/class-ftp.php' ) {\n			return;\n		}", "", $code);
+        }
+        // remove code from blocks.php
+        if (str_contains($filePath, 'blocks.php')) {
+            $code = str_replace("	if ( ! \$core_blocks_meta ) {\n		\$core_blocks_meta = require ABSPATH . WPINC . '/blocks/blocks-json.php';\n	}", "", $code);
+        }   
         // Perform the replacement for "require ABSPATH" with "// require ABSPATH"
         $code = preg_replace('/\brequire(?:_once)?\s+ABSPATH\b/', '// $0', $code);
+
+        // Perform various text replacements
         $code = str_replace('WordPress', 'Kelp', $code);
         $code = str_replace('Howdy', 'Hey', $code);
         $code = str_replace('wp-login.php', 'admin/', $code);
