@@ -144,7 +144,7 @@ class ClassCollector extends NodeVisitorAbstract
 }
 
 // Directory containing PHP files
-$directory = '/Users/austin/Documents/kelp-transmuter/wordpress';
+$directory = 'wordpress';
 $mappings = [];
 
 // Read both function and class mappings
