@@ -1,6 +1,6 @@
 # Kelp Transmuter
 
-Transmuting code from WordPress into something new. This is not a functional tool, as least not yet. Keep an eye on [kelp.world](https://kelp.world) to find out.
+Transmuting code from WordPress into something new. This is not a functional tool, at least not yet. Keep an eye on [kelp.world](https://kelp.world).
 
 ## Docs
 
@@ -30,4 +30,4 @@ Edit the found configuration file. Will look something like `/opt/homebrew/etc/p
 ```
 memory_limit = 8G
 ```
-Open mappings.yaml and change `namespace`, `class` and `method` according to your organization method then re-run `php transmuter.php` to see newly organized code.
+Open `mappings.yaml` and change `namespace`, `class` and `method` according to your organization method then re-run `php transmuter.php` to see newly organized code.
